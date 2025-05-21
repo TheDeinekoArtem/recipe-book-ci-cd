@@ -34,11 +34,8 @@ ROOT_URLCONF = 'project_recipe.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            BASE_DIR / 'templates',  # Глобальні шаблони
-            BASE_DIR / 'recipe/templates',  # Шаблони для recipe (для тестів)
-        ],
-        'APP_DIRS': True,
+        'DIRS': [BASE_DIR / 'templates'],  # Глобальні шаблони (наприклад, base.html)
+        'APP_DIRS': True,  # Пошук шаблонів у папках templates додатків
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
