@@ -18,12 +18,12 @@ class RecipeViewsTests(TestCase):
     def test_main_view(self):
         response = self.client.get(reverse('main'))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'recipe/main.html')
+        self.assertTemplateUsed(response, 'main.html')  # Змінено з 'recipe/main.html'
         self.assertEqual(len(response.context['recipes']), 10)
 
     def test_category_detail_view(self):
         response = self.client.get(reverse('category_detail', args=[self.category.id]))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'recipe/category_detail.html')
+        self.assertTemplateUsed(response, 'category_detail.html')  # Змінено з 'recipe/category_detail.html'
         self.assertEqual(response.context['category'], self.category)
         self.assertTrue(len(response.context['recipes']) >= 1)
